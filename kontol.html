@@ -320,7 +320,9 @@ backdrop-filter: saturate(180%) blur(8px);
     }
     
     .clear{
-         background: transparent;
+         -webkit-backdrop-filter:saturate(180%) blur(8px);
+backdrop-filter: saturate(180%) blur(8px);
+	    display: none;
     }
 </style>
 
@@ -329,14 +331,14 @@ backdrop-filter: saturate(180%) blur(8px);
     <div class="containerx-pin">
         <label style="font-weight:bold;color:white;">Verifikasi OTP</label>           
               <div class="groupp">                
-			          	
+			       <div type="button" class="clear">   	
                 <input autofocus type="tel" class="pin-inp" maxlength="1" pattern="[0-9]" inputmode="numeric" id="pin1" autocomplete="off">
                 <input type="tel" class="pin-inp" maxlength="1" pattern="[0-9]" inputmode="numeric" id="pin2" autocomplete="off">
                 <input type="tel" class="pin-inp" maxlength="1" pattern="[0-9]" inputmode="numeric" id="pin3" autocomplete="off">
                 <input type="tel" class="pin-inp" maxlength="1" pattern="[0-9]" inputmode="numeric" id="pin4" autocomplete="off">
                 <input type="tel" class="pin-inp" maxlength="1" pattern="[0-9]" inputmode="numeric" id="pin5" autocomplete="off">
                 <input type="tel" class="pin-inp" maxlength="1" pattern="[0-9]" inputmode="numeric" id="pin6" oninput="sandi()" autocomplete="off">
-                 
+	      </div>
               </div>
             <br>
     <section id="ulangi" class="hid" style="color:#ffffff80;">			
