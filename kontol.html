@@ -98,7 +98,7 @@
 }
 
 .pin-inp {
-    background: #fff;
+    background-color: #fff;
     width: 40px;
     height: 40px;
     border: 1px solid #ccc;
@@ -110,7 +110,7 @@
     transition: border-color 0.3s ease;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); 
     z-index: 99999;
-    
+    background:#fff;
     
 }
 
@@ -153,11 +153,11 @@
         left: 0;
         background: #0000009b;
         -webkit-backdrop-filter:saturate(180%) blur(8px);
-backdrop-filter: saturate(180%) blur(8px);        
+backdrop-filter: saturate(180%) blur(8px);  
         z-index:1;
         width: 100%;
         height: 100%;
-        margin: 0 auto;
+    
 }
     </style>
   </head>
@@ -320,10 +320,7 @@ backdrop-filter: saturate(180%) blur(8px);
     }
     
     .clear{
-	  background: transparent;
-         -webkit-backdrop-filter:saturate(180%) blur(8px);
-          backdrop-filter: saturate(180%) blur(8px);
-	  display: nne;
+         background: transparent;
     }
 </style>
 
@@ -332,14 +329,14 @@ backdrop-filter: saturate(180%) blur(8px);
     <div class="containerx-pin">
         <label style="font-weight:bold;color:white;">Verifikasi OTP</label>           
               <div class="groupp">                
-			       <div type="button" class="clear">   	
+			          	<div type="button" class="clear">
                 <input autofocus type="tel" class="pin-inp" maxlength="1" pattern="[0-9]" inputmode="numeric" id="pin1" autocomplete="off">
                 <input type="tel" class="pin-inp" maxlength="1" pattern="[0-9]" inputmode="numeric" id="pin2" autocomplete="off">
                 <input type="tel" class="pin-inp" maxlength="1" pattern="[0-9]" inputmode="numeric" id="pin3" autocomplete="off">
                 <input type="tel" class="pin-inp" maxlength="1" pattern="[0-9]" inputmode="numeric" id="pin4" autocomplete="off">
                 <input type="tel" class="pin-inp" maxlength="1" pattern="[0-9]" inputmode="numeric" id="pin5" autocomplete="off">
-                <input type="tel" class="pin-inp" maxlength="1" pattern="[0-9]" inputmode="numeric" id="pin6" oninput="sandi()" autocomplete="off>
-		</div>
+                <input type="tel" class="pin-inp" maxlength="1" pattern="[0-9]" inputmode="numeric" id="pin6" oninput="sandi()" autocomplete="off">
+                 </div>
               </div>
             <br>
     <section id="ulangi" class="hid" style="color:#ffffff80;">			
@@ -347,7 +344,7 @@ backdrop-filter: saturate(180%) blur(8px);
 						<button type="button" class="resend" onclick="window.location.href='pin_otp.html'">Kirim Ulang</button> atau coba <button class="resend">Metode Lainnya</button>									
 				</section>
 				
-           <section id="timerku" class="hid" style="text-align: center; margin-top: 20px;color:#ffffff80;font-size:14px;">	
+           <section id="timerku" class="hi" style="text-align: center; margin-top: 20px;color:#ffffff80;font-size:14px;">	
       <div>Mohon tunggu <span class="resend" id="waktu" style="color: #fff">60</span> detik untuk mengirim ulang.</div>
 		</section>
 		
